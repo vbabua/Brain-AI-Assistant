@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "brain-ai-assistant"
+version = "0.1.0"
+description = ""
+authors = ["yoonpaix <babuvadakemu@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.12.8"
+
+
+[tool.poetry.group.dev.dependencies]
+poethepoet = "^0.33.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poe.tasks]
+run = "python -m brain_ai_assistant.main"
+format = "black ."
+test = "pytest"
