@@ -173,3 +173,12 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# OS generated files
+.DS_Store
+
+# ZenML files
+.zen/
+
+# Data directory
+data/
