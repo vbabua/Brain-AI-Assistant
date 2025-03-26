@@ -1,10 +1,8 @@
+import click
 from datetime import datetime as dt
 from pathlib import Path
 
-import click
-
 from brain_ai_assistant.pipelines import fetch_notion_data
-
 
 @click.command()
 @click.option(
@@ -23,10 +21,12 @@ def main(
     run_fetch_notion_data_pipeline: bool = False,
     no_cache: bool = False,
 ) -> None:
-    """Run the ZenML Second Brain project pipelines."""
+    """
+    Run the ZenML Second Brain project pipelines.
+    """
     
     if not run_fetch_notion_data_pipeline:
-        print("Please specify an action to run with --run-collect-notion-data-pipeline")
+        print("Please specify an action to run with --run-fetch-notion-data-pipeline")
         return
     
     pipeline_args = {
@@ -38,7 +38,7 @@ def main(
         run_args = {}
         pipeline_args["config_path"] = root_dir / "configs" / "collect_notion_data.yaml"
         assert pipeline_args["config_path"].exists(), f"Config file not found: {pipeline_args['config_path']}"
-        pipeline_args["run_name"] = f"collect_notion_data_run_{dt.now().strftime('%Y_%m_%d_%H_%M_%S')}"
+        pipeline_args["run_name"] = f"fetch_notion_data_run_{dt.now().strftime('%Y_%m_%d_%H_%M_%S')}"
         fetch_notion_data.with_options(**pipeline_args)(**run_args)
 
 
