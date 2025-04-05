@@ -12,11 +12,20 @@ help:
 setup:
 	poetry install
 
+local-docker-infrastructure-up:
+	docker compose -f docker/docker-compose.yml up --build -d 
+
+local-docker-infrastructure-stop:
+	docker compose -f docker/docker-compose.yml stop
+
 fetch-notion-data:
-	poetry run python -m brain_ai_assistant.tools.run --run-fetch-notion-data-pipeline
+	poetry run python -m apps.brain_ai_assistant.tools.run --run-fetch-notion-data-pipeline
 
 fetch-notion-data-no-cache:
-	poetry run python -m brain_ai_assistant.tools.run --run-fetch-notion-data-pipeline --no-cache
+	poetry run python -m apps.brain_ai_assistant.tools.run --run-fetch-notion-data-pipeline --no-cache
+
+etl-pipeline:
+	poetry run python -m apps.brain_ai_assistant.tools.run --run-etl-pipeline --no-cache
 
 clean:
 	rm -rf .pytest_cache

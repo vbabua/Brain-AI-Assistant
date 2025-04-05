@@ -1,4 +1,0 @@
-parameters :
-  database_ids :
-    - # replace with database id
-  storage_path : data/

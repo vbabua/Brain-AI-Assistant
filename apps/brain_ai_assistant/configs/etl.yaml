@@ -1,0 +1,6 @@
+parameters:
+  storage_path: data/
+  database_collection_name: raw
+  concurrent_tasks: 4
+  quality_agent_model_id: gpt-4o-mini
+  use_mock_quality_agent: true

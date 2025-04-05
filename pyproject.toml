@@ -8,6 +8,8 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "3.12.8"
 loguru = "^0.7.3"
+pymongo = "^4.11.3"
+crawl4ai = "^0.5.0.post8"
 
 
 [tool.poetry.group.dev.dependencies]
